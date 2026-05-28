@@ -32,20 +32,18 @@ function LoginPage() {
 
       localStorage.setItem(
         'role',
-        response.data.user?.role || '',
+        response.data.role,
       );
 
       localStorage.setItem(
         'email',
-        response.data.user?.email || '',
+        response.data.email,
       );
 
       alert('Login successful');
 
-      if (
-        response.data.user?.role ===
-        'admin'
-      ) {
+     
+      if (response.data.role === 'admin') {
         navigate('/admin');
       } else {
         navigate('/products');
