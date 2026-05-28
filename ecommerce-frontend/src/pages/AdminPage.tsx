@@ -15,7 +15,7 @@ function AdminPage() {
   const fetchProducts = async () => {
     try {
       const response = await axios.get(
-        'http://localhost:3000/products',
+        `${import.meta.env.VITE_API_URL}/products`,
       );
 
       setProducts(response.data);
@@ -38,7 +38,7 @@ function AdminPage() {
         localStorage.getItem('token');
 
       await axios.post(
-        'http://localhost:3000/products',
+         `${import.meta.env.VITE_API_URL}/products`,
         {
           name,
           description,
@@ -73,7 +73,7 @@ function AdminPage() {
         localStorage.getItem('token');
 
       await axios.delete(
-        `http://localhost:3000/products/${id}`,
+         `${import.meta.env.VITE_API_URL}/products/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

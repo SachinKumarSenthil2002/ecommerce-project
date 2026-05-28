@@ -8,7 +8,7 @@ function ProductsPage() {
   const fetchProducts = async () => {
     try {
       const response = await axios.get(
-        'http://localhost:3000/products',
+        `${import.meta.env.VITE_API_URL}/products`,
       );
 
       console.log(response.data);
@@ -42,7 +42,7 @@ function ProductsPage() {
       }
 
       await axios.post(
-        'http://localhost:3000/orders',
+        `${import.meta.env.VITE_API_URL}/orders`,
         {
           customerEmail,
           productName: product.name,
