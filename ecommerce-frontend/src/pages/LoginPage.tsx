@@ -37,7 +37,7 @@ function LoginPage() {
 
       localStorage.setItem(
         'email',
-        response.data.email,
+        response.data.user.email,
       );
 
       alert('Login successful');
