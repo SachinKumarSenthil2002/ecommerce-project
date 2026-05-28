@@ -32,7 +32,7 @@ function LoginPage() {
 
       localStorage.setItem(
         'role',
-        response.data.role,
+        response.data.user?.role || '',
       );
 
       localStorage.setItem(
@@ -42,7 +42,10 @@ function LoginPage() {
 
       alert('Login successful');
 
-      if (response.data.role === 'admin') {
+      if (
+        response.data.user?.role ===
+        'admin'
+      ) {
         navigate('/admin');
       } else {
         navigate('/products');
